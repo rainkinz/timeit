@@ -1,0 +1,4 @@
+timeit
+======
+
+Simple ruby timer
