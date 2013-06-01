@@ -8,9 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = Timeit::VERSION
   spec.authors       = ["rainkinz"]
   spec.email         = ["brendan.grainger@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = <<-TEXT
+    Very basic ruby timer for keeping track of the duration, splits and rate of
+    a block of code.
+  TEXT
+  spec.summary       = %q{Track duration of a block of code}
+  spec.homepage      = "https://github.com/rainkinz/timeit"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,5 +23,4 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "pry"
 end
