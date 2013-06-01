@@ -23,4 +23,12 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+
+  if !! (RUBY_PLATFORM =~ /java/)
+    # For some reason the pure ruby version isn't found by Bundler
+    spec.platform      = 'java'
+  else
+    spec.platform      = Gem::Platform::RUBY
+  end
+
 end
