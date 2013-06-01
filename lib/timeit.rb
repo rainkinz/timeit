@@ -5,21 +5,21 @@ module Timeit
 
   class Timer
 
-    attr_reader :start_time
+    attr_reader :start_time, :count
 
     def initialize(start = Time.now)
       @start_time = start
-      @iterations = 0
+      @count = 0
       @rate = 0
 
       @split_time = start
-      @split_iterations = 0
+      @split_count = 0
       @split_rate = 0
     end
 
     def duration
       duration = Time.now - @start_time
-      @rate = @iterations / duration
+      @rate = @count / duration
       duration
     end
 
@@ -31,8 +31,8 @@ module Timeit
       split = Time.now - @split_time
       @split_time = Time.now
 
-      @split_rate = @split_iterations / split
-      @split_iterations = 0
+      @split_rate = @split_count / split
+      @split_count = 0
 
       split
     end
@@ -42,8 +42,8 @@ module Timeit
     end
 
     def tick!(count = 1)
-      @iterations += count
-      @split_iterations += count
+      @count += count
+      @split_count += count
     end
 
     def rate
