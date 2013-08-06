@@ -28,7 +28,6 @@ puts "Completed in #{timer.total_duration} "
 ```
 
 * Splits
-
 ```ruby
 timer = Timeit.ti do |ti|
 
