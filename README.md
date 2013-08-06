@@ -4,7 +4,8 @@ Simple ruby timer.
 
 ## Usage
 
-* Calculate the total duration
+### Calculate the total duration
+
 ```ruby
 timer = Timeit.ti do
   sleep 1
@@ -13,7 +14,8 @@ puts "Completed in #{timer.total_duration}"
 ```
 
 
-* Log the rate and count 'iterations'
+### Log the rate and count 'iterations'
+
 ```ruby
 timer = Timeit.ti do |ti|
   1.upto(100) do |i|
@@ -27,7 +29,8 @@ end
 puts "Completed in #{timer.total_duration} "
 ```
 
-* Splits
+### Splits
+
 ```ruby
 timer = Timeit.ti do |ti|
 
