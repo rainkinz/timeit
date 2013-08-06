@@ -1,7 +1,20 @@
-timeit
-======
+# timeit
 
-Simple ruby timer
+Simple ruby timer.
+
+## Usage
+
+```ruby
+Timeit.ti do |timer|
+  1.upto(100) do |i|
+    if i % 10 == 0
+      timer.tick!(10)
+      puts "#{timer.count} of 1000 in #{timer.duration} #{timer.rate} items/s" 
+    end
+  end
+  puts "Completed in #{timer.total_duration} "
+end
+```
 
 
 ## Installation
@@ -18,9 +31,6 @@ Or install it yourself as:
 
     $ gem install timeit
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
