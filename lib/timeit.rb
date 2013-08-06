@@ -5,16 +5,26 @@ module Timeit
 
   class Timer
 
+    IllegalStateError = Class.new(RuntimeError)
+
     attr_reader :start_time, :count
 
-    def initialize(start = Time.now)
-      @start_time = start
+    def initialize
+      @start_time = nil
       @count = 0
       @rate = 0
 
-      @split_time = start
+      @split_time = nil
       @split_count = 0
       @split_rate = 0
+    end
+
+    def start
+      @start_time = @split_time = Time.now
+    end
+
+    def stop
+      @stop_time = Time.now
     end
 
     def duration
@@ -24,7 +34,11 @@ module Timeit
     end
 
     def total_duration
-      Time.now - @start_time
+      if @stop_time
+        @stop_time - @start_time
+      else
+        raise(IllegalStateError, "Timer must be stopped for total duration")
+      end
     end
 
     def split
@@ -56,10 +70,12 @@ module Timeit
 
   end
 
-
-  def ti(&block)
+  def ti(autostart = true, &block)
     t = Timer.new
+    t.start if autostart
     yield t
+    t.stop
+    t
   end
 
 end

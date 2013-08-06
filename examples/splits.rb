@@ -1,8 +1,7 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 require 'timeit'
 
-Timeit.ti do |ti|
-
+timer = Timeit.ti do |ti|
   total_iterations = 100
   1.upto(total_iterations) do |i|
     if i % 10 == 0
@@ -16,7 +15,7 @@ Timeit.ti do |ti|
 
     sleep(0.1)
   end
-  puts "Completed in #{ti.total_duration} "
 end
+puts "Completed in #{timer.total_duration} "
 
 

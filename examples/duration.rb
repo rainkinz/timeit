@@ -1,14 +1,13 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 require 'timeit'
 
-Timeit.ti do |timer|
+timer = Timeit.ti do |ti|
   1.upto(100) do |i|
     if i % 10 == 0
-      timer.tick!(10)
-      puts "#{timer.count} of 1000 in #{timer.duration} #{timer.rate} items/s" 
+      ti.tick!(10)
+      puts "#{ti.count} of 1000 in #{ti.duration} #{ti.rate} items/s" 
     end
     sleep(0.1)
-    # timer.split! if i % 300 == 0
   end
-  puts "Completed in #{timer.total_duration} "
 end
+puts "Completed in #{timer.total_duration} "
