@@ -1,3 +1,5 @@
+Please use hitimes instead: https://github.com/copiousfreetime/hitimes
+
 # timeit
 
 Simple ruby timer.
