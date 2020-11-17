@@ -21,14 +21,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-
   if defined?(JRUBY_VERSION)
     # For some reason the pure ruby version isn't found by Bundler
     spec.platform      = 'java'
   else
     spec.platform      = Gem::Platform::RUBY
   end
-
 end
