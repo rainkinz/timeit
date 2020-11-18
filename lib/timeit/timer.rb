@@ -1,6 +1,7 @@
+# frozen_literal_string: true
+
 module Timeit
   class Timer
-
     IllegalStateError = Class.new(RuntimeError)
 
     attr_reader :start_time, :count
